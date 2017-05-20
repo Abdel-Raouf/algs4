@@ -30,10 +30,10 @@ public class Solution {
     int c = Integer.parseInt(args[2]);
     if (a == b && b == c) {
       StdOut.print("equal");
-		} else {
+    } else {
       StdOut.print("not equal");
-		}
-	}
+    }
+  }
 }
 ```
 
@@ -118,7 +118,7 @@ Hint: [Primitive Data Types](http://docs.oracle.com/javase/tutorial/java/nutsand
 ### 1.1.9
 ```java
 String s = ""
-for (int n = N; n > 0; n /= 2;)
+for (int n = N; n > 0; n /= 2)
   s = (n % 2) + s;
 ```
 
@@ -132,11 +132,11 @@ for (int i = 0; i < 10; i++)
 ### 1.1.11
 ```java
 for (int row = 0; row <= b.length - 1; row++)
-	for (int col = 0; col <= b[row].length - 1; col++)
-		if (b[row][col])
-			StdOut.printf("%d %d *\n", row, col);
-		else
-			StdOut.printf("%d %d  \n", row, col);
+  for (int col = 0; col <= b[row].length - 1; col++)
+    if (b[row][col])
+      StdOut.printf("%d %d *\n", row, col);
+    else
+      StdOut.printf("%d %d  \n", row, col);
 ```
 
 ### 1.1.12
@@ -162,8 +162,8 @@ for (int row = 0; row <= M - 1; row++) {
   t[col][row] = a[row][col];
 }
 for (int row = 0; row <= N - 1; row++) {
-	for (int col = 0; col <= M - 1; col++) 
-		StdOut.print(t[row][col] + " ");
-	StdOut.println();
+  for (int col = 0; col <= M - 1; col++)
+    StdOut.print(t[row][col] + " ");
+  StdOut.println();
 }
 ```
