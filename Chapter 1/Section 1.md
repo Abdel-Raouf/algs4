@@ -2,7 +2,7 @@
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) 
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114)
 
 ### 1.1.1
 a. `7`
@@ -165,5 +165,20 @@ for (int row = 0; row <= N - 1; row++) {
   for (int col = 0; col <= M - 1; col++)
     StdOut.print(t[row][col] + " ");
   StdOut.println();
+}
+```
+
+### 1.1.14
+```java
+public static int lg(int N) {
+  if (N < 1)
+    return 0; // It should throw an exception.
+  int n = 1;
+  int exp = -1;
+  while (n <= N) {
+    exp++;
+    n *= 2;
+  }
+  return exp;
 }
 ```
