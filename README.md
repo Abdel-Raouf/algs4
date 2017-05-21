@@ -1,6 +1,11 @@
 # algs4
 Unofficial Full exercise solutions for Algorithms, 4th edition textbook.
 
+### Notes
+I will finish all the exercises in exercise number order.
+
+If you find a mistake, you are welcomed to point out.
+
 ### Chapters
 * [Chapter 1: Fundamentals](Chapter%201) introduces a scientific and engineering basis for comparing algorithms and making predictions. It also includes our programming model.
 * [Chapter 2: Sorting](Chapter%202) considers several classic sorting algorithms, including insertion sort, mergesort, and quicksort. It also features a binary heap implementation of a priority queue.
