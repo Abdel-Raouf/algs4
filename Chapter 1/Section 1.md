@@ -253,12 +253,10 @@ public static void main(String[] args) {
   char flag = args[1].charAt(0);
   int[] whitelist = in.readAllInts();
   Arrays.sort(whitelist);
-  if (flag == '-')
-    while (!StdIn.isEmpty()) {
-      int key = StdIn.readInt();
-      if (BinarySearch.indexOf(whitelist, key) != -1) StdOut.println(key);
-		}
-	else while (!StdIn.isEmpty()) {
+  if (flag == '-') while (!StdIn.isEmpty()) {
+    int key = StdIn.readInt();
+    if (BinarySearch.indexOf(whitelist, key) != -1) StdOut.println(key);
+  } else while (!StdIn.isEmpty()) {
     int key = StdIn.readInt();
     if (BinarySearch.indexOf(whitelist, key) == -1) StdOut.println(key);
   }
