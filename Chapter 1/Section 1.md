@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125)
 ### 1.1.1
 a. `7`
 
@@ -19,14 +19,12 @@ d. String `33`
 
 ### 1.1.3
 ```java
-public class Solution {
-  public static void main(String[] args) {
-    int a = Integer.parseInt(args[0]);
-    int b = Integer.parseInt(args[1]);
-    int c = Integer.parseInt(args[2]);
-    if (a == b && b == c) StdOut.print("equal");
-    else StdOut.print("not equal");
-  }
+public static void main(String[] args) {
+  int a = Integer.parseInt(args[0]);
+  int b = Integer.parseInt(args[1]);
+  int c = Integer.parseInt(args[2]);
+  if (a == b && b == c) StdOut.print("equal");
+  else StdOut.print("not equal");
 }
 ```
 ### 1.1.4
@@ -262,3 +260,38 @@ public static void main(String[] args) {
   }
 }
 ```
+### 1.1.24
+1. p=105 q=24
+2. p=24 q=9
+3. p=9 q=6
+4. p=6 q=3
+5. p=3 q=0
+```java
+public class Eculid {
+  public static void main(String[] args) {
+    int p = Integer.parseInt(args[0]);
+    int q = Integer.parseInt(args[1]);
+    StdOut.print(gcd(p, q));
+  }
+  public static int gcd(int p, int q) {
+    StdOut.printf("%d %d\n", p, q);
+    if (q == 0) return p;
+    int r = p % q;
+    return gcd(q, r);
+  }
+}
+```
+`java Eculid 1111111 1234567` outputs
+```
+1111111 1234567
+1234567 1111111
+1111111 123456
+123456 7
+7 4
+4 3
+3 1
+1 0
+1
+```
+### 1.1.25
+See [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm#Proof_of_validity).
