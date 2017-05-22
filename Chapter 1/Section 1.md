@@ -3,19 +3,19 @@ Introduces our basic programming model. All of our programs are implemented usin
 ### Exercises
 [1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125)
 ### 1.1.1
-a. `7`
+<ol type="a">
+<li><code>7</code></li>
+<li><code>200.0000002</code></li>
+<li><code>true</code></li>
+</ol>
 
-b. `200.0000002`
-
-c. `true`
 ### 1.1.2
-a. Double `1.618`
-
-b. Double `10.0`
-
-c. Boolean `true`
-
-d. String `33`
+<ol type="a">
+<li>Double <code>1.618</code></li>
+<li>Double <code>10.0</code></li>
+<li>Boolean <code>true</code></li>
+<li>String <code>33</code></li>
+</ol>
 
 ### 1.1.3
 ```java
