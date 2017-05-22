@@ -1,5 +1,5 @@
 # algs4
-Unofficial Full exercise solutions for Algorithms, 4th edition textbook.
+Unofficial full exercise solutions for Algorithms, 4th edition textbook.
 
 ### Notes
 I will finish all the exercises in exercise number order.
