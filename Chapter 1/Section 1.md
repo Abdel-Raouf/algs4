@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126)
 ### 1.1.1
 <ol type="a">
 <li><code>7</code></li>
@@ -168,15 +168,15 @@ There is a solution in textbook.
 ### 1.1.18
 - Before replacement
 
-`mystery(2, 25)` returns `50`, `mystery(3, 11)` returns `33`, `mystery(a, b)` returns a×b.
+`mystery(2, 25)` returns `50`, `mystery(3, 11)` returns `33`, `mystery(a, b)` returns a × b.
 
 - After replacement
 
-`mystery(2, 25)` returns `33554432`, `mystery(3, 11)` returns `177147`, `mystery(a, b)` returns a^b.
+`mystery(2, 25)` returns `33554432`, `mystery(3, 11)` returns `177147`, `mystery(a, b)` returns a<sup>b</sup>.
 ### 1.1.19
 The N it can reach depends on computer's performance. Since `F(93)` is bigger than 2^63-1, maximum value of `long` type, the N it can acturally reach is `92`. Check [First 100 Fibonacci Numbers](http://www.miniwebtool.com/list-of-fibonacci-numbers/?number=100). 
 
-One of the improvements of `F(N)`: 
+One of the better implementations of `F(N)` that saves computed values in an array: 
 ```java
 public class Fibonacci {
   public static long[] F(int N) {
@@ -295,3 +295,47 @@ public class Eculid {
 ```
 ### 1.1.25
 See [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm#Proof_of_validity).
+### 1.1.26
+```java
+if (a > b) { t = a; a = b; b = t; } // Make sure that the bigger one between a or b moves to right.
+if (a > c) { t = a; a = c; c = t; } // Make sure that the biggest one moves to rightmost.
+if (b > c) { t = b; b = c; c = t; } // Make sure that the smallest one moves to left most.
+```
+### 1.1.27
+The number of recursive calls is 2<sup>100</sup> + 2<sup>50</sup>.
+
+You can try using the code below to get the number of recursive calls (it would spend a lot of time, then overflow...): 
+```java
+public static void main(String[] args) {
+  Counter c = new Counter("");
+  double b = binomial(100, 50, 0.25, c);
+  StdOut.println(b);
+}
+public static double binomial(int N, int k, double p, Counter c) {
+  if (N == 0 && k == 0) return 1.0;
+  if (N < 0 || k < 0) return 0.0;
+  c.increment();
+  StdOut.println(c);
+  return (1.0 - p) * binomial(N - 1, k, p, c) + p * binomial(N - 1, k - 1, p, c);
+}
+```
+One of the better implementations that is based on saving computed values in an array: 
+```java
+public static void main(String[] args) {
+  double b = binomial(100, 50, 0.25);
+  StdOut.println(b);
+}
+public static double binomial(int n, int k, double p) {
+  double[][] v = new double[n + 1][k + 1];
+  for (int i = 0; i <= n; i++)
+    for (int j = 0; j <= k; j++)
+      v[i][j] = -1;
+  return binomial(v, n, k, p);
+}
+public static double binomial(double[][] v, int n, int k, double p) {
+  if (n == 0 && k == 0) return 1.0;
+  if (n < 0 || k < 0) return 0.0;
+  if (v[n][k] == -1) v[n][k] = (1.0 - p) * binomial(v, n - 1, k, p) + p * binomial(v, n - 1, k - 1, p);
+  return v[n][k];
+}
+```
