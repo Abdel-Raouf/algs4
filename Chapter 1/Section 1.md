@@ -225,7 +225,7 @@ public static void main(String[] args) {
 }
 ```
 ### 1.1.22
-One of the solutions:
+One of the versions:
 ```java
 public static int rank(int key, int[] a) {
   return rank(key, a, 0, a.length - 1, 0);
