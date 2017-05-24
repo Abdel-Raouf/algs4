@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128)
 ### 1.1.1
 <ol type="a">
 <li><code>7</code></li>
@@ -297,9 +297,9 @@ public class Eculid {
 See [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm#Proof_of_validity).
 ### 1.1.26
 ```java
-if (a > b) { t = a; a = b; b = t; } // Make sure that the bigger one between a or b moves to right.
-if (a > c) { t = a; a = c; c = t; } // Make sure that the biggest one moves to rightmost.
-if (b > c) { t = b; b = c; c = t; } // Make sure that the smallest one moves to left most.
+if (a > b) { t = a; a = b; b = t; } // make sure that the bigger one between a or b moves to right.
+if (a > c) { t = a; a = c; c = t; } // make sure that the biggest one moves to rightmost.
+if (b > c) { t = b; b = c; c = t; } // make sure that the smallest one moves to left most.
 ```
 ### 1.1.27
 The number of recursive calls is 2<sup>100</sup> + 2<sup>50</sup>.
@@ -337,5 +337,31 @@ public static double binomial(double[][] v, int n, int k, double p) {
   if (n < 0 || k < 0) return 0.0;
   if (v[n][k] == -1) v[n][k] = (1.0 - p) * binomial(v, n - 1, k, p) + p * binomial(v, n - 1, k - 1, p);
   return v[n][k];
+}
+```
+### 1.1.28
+```java
+public static void main(String[] args) {
+  In in = new In(args[0]);
+  int[] whitelist = in.readAllInts();
+  Arrays.sort(whitelist);
+  
+  // remove duplicates
+  int len = whitelist.length;
+  for (int i = 0; i < whitelist.length - 1; i++)
+    if (whitelist[i] == whitelist[i + 1]) len--;
+  int[] tmp = new int[len]; int pos = 0;
+  for (int i = 0; i < whitelist.length - 1; i++) {
+    if (whitelist[i] != whitelist[i + 1]) {
+      tmp[pos] = whitelist[i]; pos++;
+      if (i == whitelist.length - 2) tmp[pos] = whitelist[i + 1];
+    }
+  }
+  whitelist = tmp;
+  
+  while (!StdIn.isEmpty()) {
+    int key = StdIn.readInt();
+    if (Test.indexOf(whitelist, key) == -1) StdOut.println(key);
+  }
 }
 ```
