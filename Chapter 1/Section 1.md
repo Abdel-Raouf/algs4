@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129)
 ### 1.1.1
 <ol type="a">
 <li><code>7</code></li>
@@ -363,5 +363,40 @@ public static void main(String[] args) {
     int key = StdIn.readInt();
     if (Test.indexOf(whitelist, key) == -1) StdOut.println(key);
   }
+}
+```
+### 1.1.29
+```java
+public static int rank(int key, int[] a) {
+  int lo = 0;
+  int hi = a.length - 1;
+  int mid = 0;
+  while (lo <= hi) {
+    mid = lo + (hi - lo) / 2;
+    if (key < a[mid]) hi = mid - 1;
+    else if (key > a[mid]) lo = mid + 1;
+    else {
+      while (--mid >= 0 && a[mid] == key) ;
+      return mid + 1;
+    }
+  }
+  while (++hi < a.length && a[hi] < key) ;
+  return hi - 1;
+}
+public static int count(int key, int[] a) {
+  int lo = 0;
+  int hi = a.length - 1;
+  while (lo <= hi) {
+    int mid = lo + (hi - lo) / 2;
+    if (key < a[mid]) hi = mid - 1;
+    else if (key > a[mid]) lo = mid + 1;
+    else {
+      int tmp = mid;
+      while (--tmp >= 0 && a[tmp] == key) ;
+      while (++mid < a.length && a[mid] == key) ;
+      return mid - tmp - 1;
+    }
+  }
+  return 0;
 }
 ```
