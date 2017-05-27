@@ -300,39 +300,17 @@ if (b > c) { t = b; b = c; c = t; } // make sure that the smallest one moves to 
 ### 1.1.27
 The number of recursive calls is 2<sup>100</sup> + 2<sup>50</sup>.
 
-You can try using the code below to get the number of recursive calls (it would spend a lot of time, then overflow...): 
+A implementation that is based on saving computed values in an array (official version, see [Binomial.java](http://algs4.cs.princeton.edu/11model/Binomial.java.html)): 
 ```java
-public static void main(String[] args) {
-  Counter c = new Counter("");
-  double b = binomial(100, 50, 0.25, c);
-  StdOut.println(b);
-}
-public static double binomial(int N, int k, double p, Counter c) {
-  if (N == 0 && k == 0) return 1.0;
-  if (N < 0 || k < 0) return 0.0;
-  c.increment();
-  StdOut.println(c);
-  return (1.0 - p) * binomial(N - 1, k, p, c) + p * binomial(N - 1, k - 1, p, c);
-}
-```
-One of the better implementations that is based on saving computed values in an array: 
-```java
-public static void main(String[] args) {
-  double b = binomial(100, 50, 0.25);
-  StdOut.println(b);
-}
-public static double binomial(int n, int k, double p) {
-  double[][] v = new double[n + 1][k + 1];
-  for (int i = 0; i <= n; i++)
-    for (int j = 0; j <= k; j++)
-      v[i][j] = -1;
-  return binomial(v, n, k, p);
-}
-public static double binomial(double[][] v, int n, int k, double p) {
-  if (n == 0 && k == 0) return 1.0;
-  if (n < 0 || k < 0) return 0.0;
-  if (v[n][k] == -1) v[n][k] = (1.0 - p) * binomial(v, n - 1, k, p) + p * binomial(v, n - 1, k - 1, p);
-  return v[n][k];
+public static double binomial2(int N, int k, double p) {
+  double[][] b = new double[N + 1][k + 1];
+  for (int i = 0; i <= N; i++)
+    b[i][0] = Math.pow(1.0 - p, i);
+  b[0][0] = 1.0;
+  for (int i = 1; i <= N; i++)
+    for (int j = 1; j <= k; j++)
+      b[i][j] = p * b[i - 1][j - 1] + (1.0 - p) * b[i - 1][j];
+    return b[N][k];
 }
 ```
 ### 1.1.28
@@ -402,4 +380,26 @@ boolean[][] a = new boolean[N][N];
 for (int i = 0; i < a.length; i++)
   for (int j = 0; j < a[i].length; j++)
     if (gcd(i, j) == 1) a[i][j] = true;
+```
+### 1.1.31
+```java
+// default scaled.
+public static void main(String[] args) {
+  int N = Integer.parseInt(args[0]);
+  double p = Double.parseDouble(args[1]);
+  double[] x = new double[N];
+  double[] y = new double[N];
+  StdDraw.setPenRadius(.05);
+  for (int i = 0; i < N; i++) {
+    x[i] = Math.cos(2 * Math.PI * i / N);
+    y[i] = Math.sin(2 * Math.PI * i / N);
+    StdDraw.point(x[i], y[i]);
+  }
+  StdDraw.setPenRadius();
+  StdDraw.setPenColor(StdDraw.GRAY);
+  for (int i = 0; i < N - 1; i++)
+    for (int j = i + 1; j < N; j++)
+      if (StdRandom.bernoulli(p))
+        StdDraw.line(x[i], y[i], x[j], y[j]);
+}
 ```
