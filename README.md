@@ -1,11 +1,11 @@
 # algs4
 Unofficial full exercise solutions for Algorithms, 4th edition textbook.
-
 ### Notes
 I will finish all the exercises in exercise number order.
 
 If you find a mistake, you are welcomed to point out.
 
+Some need [algs4.jar](http://algs4.cs.princeton.edu/code/algs4.jar) as imported library and [algs4-data.zip](http://algs4.cs.princeton.edu/code/algs4-data.zip) as test data.
 ### Chapters
 * [Chapter 1: Fundamentals](Chapter%201) introduces a scientific and engineering basis for comparing algorithms and making predictions. It also includes our programming model.
 * [Chapter 2: Sorting](Chapter%202) considers several classic sorting algorithms, including insertion sort, mergesort, and quicksort. It also features a binary heap implementation of a priority queue.
@@ -13,6 +13,5 @@ If you find a mistake, you are welcomed to point out.
 * [Chapter 4: Graphs](Chapter%204) surveys the most important graph-processing problems, including depth-first search, breadth-first search, minimum spanning trees, and shortest paths.
 * [Chapter 5: Strings](Chapter%205) investigates specialized algorithms for string processing, including radix sorting, substring search, tries, regular expressions, and data compression.
 * [Chapter 6: Context](Chapter%206.md) highlights connections to systems programming, scientific computing, commercial applications, operations research, and intractability.
-
 ### Official link
 [Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne](http://algs4.cs.princeton.edu/home/)
