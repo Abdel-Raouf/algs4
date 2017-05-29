@@ -525,16 +525,16 @@ public class Matrix {
 ```
 Input stream format: 
 ```
-a's row
-a's column
-a's elements value form left to right, from top to bottom
-b's row
-b's column
-b's elements value form left to right, from top to bottom
-x's row (or column)
-x's elements from left to right (or from top to bottom)
-y's row (or column)
-y's elements from left to right (or from top to bottom)
+a's row's length
+a's column's length
+a's elements' values form left to right, from top to bottom
+b's row's length
+b's column's length
+b's elements' values form left to right, from top to bottom
+x's row's (or column's) length
+x's elements' values from left to right (or from top to bottom)
+y's row's (or column's) length
+y's elements' values from left to right (or from top to bottom)
 ```
 Input: 
 ```
