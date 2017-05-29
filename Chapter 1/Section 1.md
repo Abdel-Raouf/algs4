@@ -523,6 +523,19 @@ public class Matrix {
   }
 }
 ```
+Input stream format: 
+```
+a's row
+a's column
+a's elements value form left to right, from top to bottom
+b's row
+b's column
+b's elements value form left to right, from top to bottom
+x's row (or column)
+x's elements from left to right (or from top to bottom)
+y's row (or column)
+y's elements from left to right (or from top to bottom)
+```
 Input: 
 ```
 2
