@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129) [1.1.30](#1130) [1.1.31](#1131) [1.1.32](#1132)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129) [1.1.30](#1130) [1.1.31](#1131) [1.1.32](#1132) [1.1.33](#1133)
 ### 1.1.1
 <ol type="a">
 <li><code>7</code></li>
@@ -430,4 +430,134 @@ public static void main(String[] args) {
     StdDraw.filledRectangle(x, y, rw, rh);
   }
 }
+```
+### 1.1.33
+```java
+public class Matrix {
+  public static double dot(double[] x, double[] y) {
+    int N = x.length;
+    double z = 0;
+    for (int i = 0; i < N; i++) z += x[i] * y[i];
+    return z;
+  }
+  public static double[][] mult(double[][] a, double[][] b) {
+    int M = a.length;
+    int N = b[0].length;
+    double[][] c = new double[M][N];
+    for (int i = 0; i < M; i++)
+      for (int j = 0; j < N; j++)
+        for (int k = 0; k < a[i].length; k++)
+          c[i][j] += a[i][k] * b[k][j];
+    return c;
+  }
+  public static double[][] transpose(double[][] a) {
+    int M = a.length;
+    int N = a[0].length;
+    double[][] t = new double[N][M];
+    for (int i = 0; i < N; i++)
+      for (int j = 0; j < M; j++)
+        t[i][j] = a[j][i];
+    return t;
+  }
+  public static double[] mult(double[][] a, double[] x) {
+    int N = a.length;
+    double[] b = new double[N];
+    for (int i = 0; i < N; i++)
+      for (int j = 0; j < a[i].length; j++)
+        b[i] += a[i][j] * x[j];
+    return b;
+  }
+  public static double[] mult(double[] y, double[][] a) {
+    int M = y.length;
+    int N = a[0].length;
+    double[] b = new double[N];
+    for (int i = 0; i < M; i++)
+      for (int k = 0; k < a[i].length; k++)
+        b[i] += y[k] * a[k][i];
+    return b;
+  }
+  public static void main(String[] args) {
+    int aM = StdIn.readInt();
+    int aN = StdIn.readInt();
+    double[][] a = new double[aM][aN];
+    for (int i = 0; i < aM; i++)
+      for (int j = 0; j < aN; j++)
+        a[i][j] = StdIn.readDouble();
+    double[][] t = transpose(a);
+    int bM = StdIn.readInt();
+    int bN = StdIn.readInt();
+    double[][] b = new double[bM][bN];
+    for (int i = 0; i < bM; i++)
+      for (int j = 0; j < bN; j++)
+        b[i][j] = StdIn.readDouble();
+    double[][] ab = mult(a, b);
+    int xN = StdIn.readInt();
+    double[] x = new double[xN];
+    for (int i = 0; i < xN; i++) x[i] = StdIn.readDouble();
+    double[] ax = mult(a, x);
+    int yN = StdIn.readInt();
+    double[] y = new double[yN];
+    for (int i = 0; i < xN; i++) y[i] = StdIn.readDouble();
+    double xy = dot(x, y);
+    double[] ya = mult(y, a);
+    if (StdIn.isEmpty()) {
+      StdOut.println("dot(x, y): ");
+      StdOut.println(xy);
+      StdOut.println("mult(a, b): ");
+      for (double[] row : ab) {
+        for (double col : row) StdOut.print(col + "\t");
+        StdOut.println();
+      }
+      StdOut.println("transpose(a): ");
+      for (double[] row : t) {
+        for (double col : row) StdOut.print(col + "\t");
+        StdOut.println();
+      }
+      StdOut.println("mult(a, x): ");
+      for (double e : ax) StdOut.print(e + "\t");
+      StdOut.println();
+      StdOut.println("mult(y, a): ");
+      for (double e : ya) StdOut.print(e + "\t");
+      StdOut.println();
+    }
+  }
+}
+```
+Input: 
+```
+2
+2
+1
+2
+3
+4
+2
+2
+5
+6
+7
+8
+2
+9
+10
+2
+11
+12
+
+```
+Output: 
+```
+dot(x, y): 
+219.0
+mult(a, b): 
+19.0	22.0	
+43.0	50.0	
+transpose(a): 
+1.0	3.0	
+2.0	4.0	
+mult(a, x): 
+29.0	67.0	
+mult(y, a): 
+47.0	70.0	
+
 ```
