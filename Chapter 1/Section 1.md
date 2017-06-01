@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129) [1.1.30](#1130) [1.1.31](#1131) [1.1.32](#1132) [1.1.33](#1133) [1.1.34](#1134)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129) [1.1.30](#1130) [1.1.31](#1131) [1.1.32](#1132) [1.1.33](#1133) [1.1.34](#1134) [1.1.35](#1135)
 ### 1.1.1
 <ol type="a">
 <li><code>7</code></li>
@@ -586,3 +586,18 @@ Could be implemented as a filter using only a fixed number of variables and arra
 - Print the <em>k</em>th smallest value, for _k_ less than 100.
 - Print the sum of the squares of the numbers.
 - Print the average of the _N_ numbers.
+### 1.1.35
+One of the experiments: 
+```java
+int SIDES = 6, dice1, dice2;
+int[] time = new int[2 * SIDES + 1];
+double[] dist = new double[2 * SIDES + 1];
+for (int i = 0; i < N; i++) {
+  dice1 = StdRandom.uniform(1, 7);
+  dice2 = StdRandom.uniform(1, 7);
+  time[dice1 + dice2]++;
+}
+for(int j = 2; j <= 2 * SIDES; j++)
+  dist[j] = (double) time[j] / N;
+```
+_N_ should at least reach 10<sup>6</sup> to match the exact results to three decimal places.
