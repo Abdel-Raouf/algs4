@@ -170,7 +170,7 @@ There is a solution in textbook.
 
 `mystery(2, 25)` returns `33554432`, `mystery(3, 11)` returns `177147`, `mystery(a, b)` returns a<sup>b</sup>.
 ### 1.1.19
-The N it can reach depends on computer's performance. Since `F(93)` is bigger than 2^63-1, maximum value of `long` type, the N it can acturally reach is `92`. Check [First 100 Fibonacci Numbers](http://www.miniwebtool.com/list-of-fibonacci-numbers/?number=100). 
+The _N_ it can reach depends on computer's performance. Since `F(93)` is bigger than 2^63-1, maximum value of `long` type, the _N_ it can acturally reach is `92`. Check [First 100 Fibonacci Numbers](http://www.miniwebtool.com/list-of-fibonacci-numbers/?number=100). 
 
 One of the better implementations of `F(N)` that saves computed values in an array: 
 ```java
@@ -387,7 +387,7 @@ for (int i = 0; i < a.length; i++)
 ```
 ### 1.1.31
 ```java
-// default scaled.
+// using default scale.
 public static void main(String[] args) {
   int N = Integer.parseInt(args[0]);
   double p = Double.parseDouble(args[1]);
@@ -409,6 +409,7 @@ public static void main(String[] args) {
 ```
 ### 1.1.32
 ```java
+// using default scale.
 public static void main(String[] args) {
   int N = Integer.parseInt(args[0]);
   double l = Double.parseDouble(args[1]);
