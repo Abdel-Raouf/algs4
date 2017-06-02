@@ -1,7 +1,7 @@
 # 1.1 Programming Model
 Introduces our basic programming model. All of our programs are implemented using a small subset of the Java programming language plus a few of our own libraries for input and output.
 ### Exercises
-[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129) [1.1.30](#1130) [1.1.31](#1131) [1.1.32](#1132) [1.1.33](#1133) [1.1.34](#1134) [1.1.35](#1135)
+[1.1.1](#111) [1.1.2](#112) [1.1.3](#113) [1.1.4](#114) [1.1.5](#115) [1.1.6](#116) [1.1.7](#117) [1.1.8](#118) [1.1.9](#119) [1.1.10](#1110) [1.1.11](#1111) [1.1.12](#1112) [1.1.13](#1113) [1.1.14](#1114) [1.1.15](#1115) [1.1.16](#1116) [1.1.17](#1117) [1.1.18](#1118) [1.1.19](#1119) [1.1.20](#1120) [1.1.21](#1121) [1.1.22](#1122) [1.1.23](#1123) [1.1.24](#1124) [1.1.25](#1125) [1.1.26](#1126) [1.1.27](#1127) [1.1.28](#1128) [1.1.29](#1129) [1.1.30](#1130) [1.1.31](#1131) [1.1.32](#1132) [1.1.33](#1133) [1.1.34](#1134) [1.1.35](#1135) [1.1.36](#1136) [1.1.37](#1137)
 ### 1.1.1
 <ol type="a">
 <li><code>7</code></li>
@@ -100,9 +100,9 @@ c.
 ```
 Hint: [Primitive Data Types](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
 ### 1.1.9
-There is a solution in textbook.
+There's an answer in textbook.
 ### 1.1.10
-There is a solution in textbook.
+There's an answer in textbook.
 ### 1.1.11
 ```java
 for (int row = 0; row <= b.length - 1; row++)
@@ -160,7 +160,7 @@ public static int[] histogram(int a[], int M) {
 ### 1.1.16
 `311361142246`
 ### 1.1.17
-There is a solution in textbook.
+There's an answer in textbook.
 ### 1.1.18
 - Before replacement
 
@@ -602,3 +602,56 @@ for(int j = 2; j <= 2 * SIDES; j++)
   dist[j] = (double) time[j] / N;
 ```
 _N_ should at least reach 10<sup>6</sup> to match the exact results to three decimal places.
+### 1.1.36
+```java
+public class ShuffleTest {
+  public static void main(String[] args) {
+    int M = Integer.parseInt(args[0]);
+    int N = Integer.parseInt(args[1]);
+    int[] a = new int[M];
+    int[][] time = new int[M][M];
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < M; j++) a[j] = j;
+      StdRandom.shuffle(a); // Test here.
+      for (int j = 0; j < M; j++) time[j][a[j]]++;
+    }
+    for (int i = 0; i < M; i++) {
+      for (int j = 0; j < M; j++)
+        StdOut.printf("%d\t", time[i][j]);
+      StdOut.println();
+    }
+  }
+}
+```
+### 1.1.37
+```java
+public class ShuffleTest {
+  public static void shuffle(int[] a) {
+    int N = a.length;
+    for (int i = 0; i < N; i++) {
+      int r = StdRandom.uniform(N); // Change here.
+      int temp = a[i];
+      a[i] = a[r];
+      a[r] = temp;
+    }
+  }
+  public static void main(String[] args) {
+    int M = Integer.parseInt(args[0]);
+    int N = Integer.parseInt(args[1]);
+    int[] a = new int[M];
+    int[][] time = new int[M][M];
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < M; j++)
+        a[j] = j;
+      shuffle(a); // Test here.
+      for (int j = 0; j < M; j++)
+        time[j][a[j]]++;
+    }
+    for (int i = 0; i < M; i++) {
+      for (int j = 0; j < M; j++)
+        StdOut.printf("%d\t", time[i][j]);
+      StdOut.println();
+    }
+  }
+}
+```
