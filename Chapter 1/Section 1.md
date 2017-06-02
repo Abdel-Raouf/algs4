@@ -641,11 +641,9 @@ public class ShuffleTest {
     int[] a = new int[M];
     int[][] time = new int[M][M];
     for (int i = 0; i < N; i++) {
-      for (int j = 0; j < M; j++)
-        a[j] = j;
+      for (int j = 0; j < M; j++) a[j] = j;
       shuffle(a); // Test here.
-      for (int j = 0; j < M; j++)
-        time[j][a[j]]++;
+      for (int j = 0; j < M; j++) time[j][a[j]]++;
     }
     for (int i = 0; i < M; i++) {
       for (int j = 0; j < M; j++)
