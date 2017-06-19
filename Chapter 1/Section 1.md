@@ -300,7 +300,7 @@ if (b > c) { t = b; b = c; c = t; } // make sure that the smallest one moves to 
 ### 1.1.27
 The number of recursive calls is 2<sup>100</sup> + 2<sup>50</sup>.
 
-A implementation that is based on saving computed values in an array (official version, see [Binomial.java](http://algs4.cs.princeton.edu/11model/Binomial.java.html)): 
+An implementation that is based on saving computed values in an array (official version, see [Binomial.java](http://algs4.cs.princeton.edu/11model/Binomial.java.html)): 
 ```java
 public static double binomial2(int N, int k, double p) {
   double[][] b = new double[N + 1][k + 1];
