@@ -257,7 +257,7 @@ public static void main(String[] args) {
 }
 ```
 ### 1.1.24
-1. p=105 q=24
+1. p=105 q=24 
 2. p=24 q=9
 3. p=9 q=6
 4. p=6 q=3
