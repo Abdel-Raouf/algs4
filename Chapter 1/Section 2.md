@@ -2,7 +2,7 @@
 Emphasizes data abstraction, where we define abstract data types (ADTs). We specify an applications programming interface (API) and then use the Java class mechanism to develop an implementation for use in client code.
 
 ### Exercises
-[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125)
+[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126)
 ### 1.2.1
 ```java
 public static void main(String[] args) {
@@ -72,4 +72,12 @@ There's an answer in textbook. Formatted output is:
 ```
 Hello World
 
+```
+### 1.2.6
+```java
+public static boolean isCircular(String s, String t) {
+  if (s.length() == t.length() && s.concat(s).indexOf(t) >= 0)
+    return true;
+  else return false;
+}
 ```
