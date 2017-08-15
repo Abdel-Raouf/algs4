@@ -2,7 +2,7 @@
 Emphasizes data abstraction, where we define abstract data types (ADTs). We specify an applications programming interface (API) and then use the Java class mechanism to develop an implementation for use in client code.
 
 ### Exercises
-[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129)
+[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129) [1.2.10](#1210)
 ### 1.2.1
 ```java
 public static void main(String[] args) {
@@ -110,6 +110,27 @@ public class BinarySearch {
       if (rank(key, whitelist, counter) < 0) StdOut.println(key);
     }
     StdOut.println(counter);
+  }
+}
+```
+### 1.2.10
+```java
+public class VisualCounter {
+  private int N, max, count = 0, op = 0;
+  public VisualCounter(int N, int max) {
+    this.N = N; this.max = max;
+    StdDraw.setXscale(0, N);
+    StdDraw.setYscale(-max, max);
+  }
+  public void increment() {
+    if (op + 1 <= N && count + 1 <= max) {
+      count++; op++; StdDraw.point(op, count);
+    }
+  }
+  public void decrement() {
+    if (op + 1 <= N && count - 1 >= -max) {
+      count--; op++; StdDraw.point(op, count);
+    }
   }
 }
 ```
