@@ -2,7 +2,7 @@
 Emphasizes data abstraction, where we define abstract data types (ADTs). We specify an applications programming interface (API) and then use the Java class mechanism to develop an implementation for use in client code.
 
 ### Exercises
-[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128)
+[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129)
 ### 1.2.1
 ```java
 public static void main(String[] args) {
@@ -85,3 +85,31 @@ public static boolean isCircular(String s, String t) {
 It returns a string which is in reverse order to input one.
 ### 1.2.8
 There's an answer in textbook. 
+### 1.2.9
+```java
+import java.util.Arrays;
+public class BinarySearch {
+  public static int rank(int key, int[] a, Counter counter) {
+    int lo = 0;
+    int hi = a.length - 1;
+    while (lo <= hi) {
+      counter.increment();
+      int mid = lo + (hi - lo) / 2;
+      if (key < a[mid]) hi = mid - 1;
+      else if (key > a[mid]) lo = mid + 1;
+      else return mid;
+    }
+    return -1;
+  }
+  public static void main(String[] args) {
+    int[] whitelist = In.readInts(args[0]);
+    Counter counter = new Counter("counter");
+    Arrays.sort(whitelist);
+    while (!StdIn.isEmpty()) {
+      int key = StdIn.readInt();
+      if (rank(key, whitelist, counter) < 0) StdOut.println(key);
+    }
+    StdOut.println(counter);
+  }
+}
+```
