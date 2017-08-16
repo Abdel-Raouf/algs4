@@ -68,7 +68,7 @@ hello
 
 ```
 ### 1.2.5
-There's an answer in textbook. Formatted output is:
+There's a solution in textbook. Formatted output is:
 ```
 Hello World
 
@@ -84,7 +84,7 @@ public static boolean isCircular(String s, String t) {
 ### 1.2.7
 Reverse of the string.
 ### 1.2.8
-There's an answer in textbook. 
+There's a solution in textbook.
 ### 1.2.9
 ```java
 import java.util.Arrays;
