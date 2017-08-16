@@ -242,6 +242,7 @@ public static String repeat(int n, char c) {
 ```
 ### 1.1.23
 ```java
+import java.util.Arrays;
 public static void main(String[] args) {
   In in = new In(args[0]);
   char flag = args[1].charAt(0);
@@ -315,6 +316,7 @@ public static double binomial2(int N, int k, double p) {
 ```
 ### 1.1.28
 ```java
+import java.util.Arrays;
 public static void main(String[] args) {
   In in = new In(args[0]);
   int[] whitelist = in.readAllInts();
