@@ -2,7 +2,7 @@
 Emphasizes data abstraction, where we define abstract data types (ADTs). We specify an applications programming interface (API) and then use the Java class mechanism to develop an implementation for use in client code.
 
 ### Exercises
-[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129) [1.2.10](#1210) [1.2.11](#1211)
+[1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129) [1.2.10](#1210) [1.2.11](#1211) [1.2.12](#1212)
 ### 1.2.1
 ```java
 public static void main(String[] args) {
@@ -136,3 +136,12 @@ public class VisualCounter {
 ```
 ### 1.2.11
 See [Data.java](http://algs4.cs.princeton.edu/12oop/Date.java).
+### 1.2.12
+```java
+private static final String[] DAYSOFTHEWEEK = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+public String dayOfTheWeek() {
+  int tmpMonth = month, tmpYaer = year;
+  if (tmpMonth < 3) { tmpMonth += 12; tmpYaer -= 1; }
+  return DAYSOFTHEWEEK[((day + (((tmpMonth + 1) * 26) / 10) + tmpYaer % 100 + (tmpYaer % 100 / 4) + (tmpYaer / 400)) + (tmpYaer / 20) - 1) % 7];
+}
+```
