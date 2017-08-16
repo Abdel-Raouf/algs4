@@ -100,9 +100,9 @@ c.
 ```
 Hint: [Primitive Data Types](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
 ### 1.1.9
-There's an answer in textbook.
+There's a solution in textbook.
 ### 1.1.10
-There's an answer in textbook.
+There's a solution in textbook.
 ### 1.1.11
 ```java
 for (int row = 0; row <= b.length - 1; row++)
@@ -160,7 +160,7 @@ public static int[] histogram(int a[], int M) {
 ### 1.1.16
 `311361142246`
 ### 1.1.17
-There's an answer in textbook.
+There's a solution in textbook.
 ### 1.1.18
 - Before replacement
 
