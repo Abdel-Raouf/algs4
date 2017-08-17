@@ -7,7 +7,7 @@ Emphasizes data abstraction, where we define abstract data types (ADTs). We spec
 [1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129) [1.2.10](#1210) [1.2.11](#1211) [1.2.12](#1212) [1.2.13](#1213) [1.2.14](#1214)
 - [Creative Problems](#creative-problems)
 
-[1.2.15](#1215) [1.2.16](#1216)
+[1.2.15](#1215) [1.2.16](#1216) [1.2.17](#1217)
 ## Exercises
 ### 1.2.1
 ```java
@@ -160,3 +160,32 @@ See [Transaction.java](http://algs4.cs.princeton.edu/12oop/Transaction.java).
 There's a solution in textbook.
 ### 1.2.16
 See [Rational.java](http://algs4.cs.princeton.edu/12oop/Rational.java).
+### 1.2.17
+```java
+// From Rational.java
+// Some codes...
+private static int MAX = 2147483647;
+private static int MIN = -2147483647;
+// Some codes...
+public Rational times(Rational that) {
+  assert isTimesOverflow(this.num, that.num) : "overflow";
+  assert isTimesOverflow(this.den, that.den) : "overflow";
+  // Some codes...
+}
+// Some codes...
+public Rational plus(Rational that) {
+  assert isPlusOverflow(this.num * that.den, that.num * this.den) : "overflow";
+  assert isTimesOverflow(this.den, that.den) : "overflow";
+  // Some codes...
+}
+// Some codes...
+private boolean isPlusOverflow(int a, int b) {
+  return a >= 0 ? a + b < MAX : a + b > MIN;
+}
+private boolean isTimesOverflow(int a, int b) {
+  if (a < 0) a = -a;
+  if (b < 0) b = -b;
+  if (a == 0 || b == 0) return false;
+  else return a * b < MAX;
+}
+```
