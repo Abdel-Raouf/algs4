@@ -1,8 +1,14 @@
 # 1.2 Data Abstraction
 Emphasizes data abstraction, where we define abstract data types (ADTs). We specify an applications programming interface (API) and then use the Java class mechanism to develop an implementation for use in client code.
 
-### Exercises
+## Index
+- [Exercises](#exercises)
+
 [1.2.1](#121) [1.2.2](#122) [1.2.3](#123) [1.2.4](#124) [1.2.5](#125) [1.2.6](#126) [1.2.7](#127) [1.2.8](#128) [1.2.9](#129) [1.2.10](#1210) [1.2.11](#1211) [1.2.12](#1212) [1.2.13](#1213) [1.2.14](#1214)
+- [Creative Problems](#creative-problems)
+
+[1.2.15](#1215)
+## Exercises
 ### 1.2.1
 ```java
 public static void main(String[] args) {
@@ -149,3 +155,6 @@ public String dayOfTheWeek() {
 See [Transaction.java](http://algs4.cs.princeton.edu/12oop/Transaction.java).
 ### 1.2.14
 See [Transaction.java](http://algs4.cs.princeton.edu/12oop/Transaction.java).
+## Creative Problems
+### 1.2.15
+There's a solution in textbook.
