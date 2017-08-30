@@ -190,3 +190,7 @@ private boolean isTimesOverflow(int a, int b) {
 }
 // Some codes...
 ```
+### 1.2.18
+See [Accumulator.java](http://algs4.cs.princeton.edu/12oop/Accumulator.java).
+### 1.2.19
+See [Date.java](http://algs4.cs.princeton.edu/12oop/Date.java) and [Transaction.java](http://algs4.cs.princeton.edu/12oop/Transaction.java).
