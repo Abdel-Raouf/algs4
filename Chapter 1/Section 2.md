@@ -141,7 +141,7 @@ public class VisualCounter {
 }
 ```
 ### 1.2.11
-See [Data.java](http://algs4.cs.princeton.edu/12oop/Date.java).
+See [Date.java](http://algs4.cs.princeton.edu/12oop/Date.java).
 ### 1.2.12
 ```java
 private static final String[] DAYSOFTHEWEEK = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
